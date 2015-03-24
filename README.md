@@ -7,6 +7,8 @@ some game demo finished by cocos2dx
   
 2. 参考
 
-(1)代码来源：http://cn.cocos2d-x.org/tutorial/lists?id=110
+(1)DontCrush
 
-(2)资源来源：游戏资源
+* 代码来源：http://cn.cocos2d-x.org/tutorial/lists?id=110
+
+* 资源来源：游戏资源
