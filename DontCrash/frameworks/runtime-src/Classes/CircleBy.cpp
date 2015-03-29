@@ -51,7 +51,7 @@ void CircleBy::update(float t)
     //»¡¶ÈÊý
     auto degree = _degree*_times+_beginDegree;
 	auto testDegree = (_numDegree * t) + _beginDegree;
-	std::cout << "test" << degree << ", " << testDegree << std::endl;
+
     auto x = _radius*cos(testDegree);
     auto y = _radius*sin(testDegree);
 

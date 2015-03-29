@@ -1,4 +1,3 @@
-
 require "Cocos2d"
 
 -- cclog
@@ -54,6 +53,7 @@ local function main()
     
     --MainScene
     local scene = require("MainScene")
+    --local scene = require("FlashScene")
     local gameScene = scene.create()
 
     if cc.Director:getInstance():getRunningScene() then
