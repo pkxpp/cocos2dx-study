@@ -161,11 +161,12 @@ bool GameLayer::isCanMove(bool isMoveHor,bool moveAdd)
 	int col = m_pSeleNode->getCol() ;
 	if (isMoveHor)//水平方向
 	{
-		if (moveAdd)
+		if (moveAdd)//右移
 		{
 			int colTem = col + width;
 			int rowTem = row ;
  			int filledNum = 0 ;
+			//检查最右边一列是否有
  			for (int i = 0; i < height ; i++)
  			{
 				rowTem += i;
@@ -175,6 +176,7 @@ bool GameLayer::isCanMove(bool isMoveHor,bool moveAdd)
 				}
  			}
 			isMove = (filledNum == 0) ? true : false;
+			//如果已经是最右一列
 			if (m_pSeleNode->getCol() == 3)
 			{
 				isMove = false ;
