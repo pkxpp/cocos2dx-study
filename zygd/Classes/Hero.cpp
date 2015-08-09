@@ -20,7 +20,7 @@ Hero::~Hero(void)
 	this->addChild(m_HeroSprite);
  }
  //原地奔跑动画
- void Hero::SetAnimation(const char *name_plist,const char *name_png,unsigned int num,bool run_directon)
+ void Hero::SetAnimation(const char *name_plist,const char *name_png,const char *name_each,unsigned int num,bool run_directon)
  {
 	 if(HeroDirecton!=run_directon)
 	 {   HeroDirecton=run_directon;
@@ -29,14 +29,14 @@ Hero::~Hero(void)
 	 if(IsRunning)
 		 return;
 	 //将图片加载到精灵帧缓存池
-	CCSpriteFrameCache *m_frameCache=CCSpriteFrameCache::sharedSpriteFrameCache();
+	SpriteFrameCache *m_frameCache=SpriteFrameCache::sharedSpriteFrameCache();
 	 m_frameCache->addSpriteFramesWithFile(name_plist,name_png);
 	 //用一个列表保存所有的CCSpriteFrameCache
 	 Vector<SpriteFrame*> frameArray;//= CCArray::createWithCapacity(num);
 	 unsigned int i;
-	 for(i=2;i<=num;i++)
+	 for(i=1;i<=num;i++)
 	 {
-		 SpriteFrame* frame=m_frameCache->spriteFrameByName(CCString::createWithFormat("run_%d.png",i)->getCString());
+		 SpriteFrame* frame=m_frameCache->spriteFrameByName(CCString::createWithFormat("%s%d.png",name_each,i)->getCString());
 		 frameArray.pushBack(frame);
 	 }
 	 //使用列表创建动画对象
@@ -113,3 +113,11 @@ Hero::~Hero(void)
       this->addChild(m_HeroSprite);
        IsAttack=false;
   }
+
+bool Hero::JudgePositona (Size visibleSize)  
+{  
+     if(this->getPositionX()!=visibleSize.width/2)//精灵到达左边  
+          return false;  
+     else  
+          return true;//到达中间位置  
+}
