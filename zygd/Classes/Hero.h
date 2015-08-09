@@ -19,9 +19,16 @@ USING_NS_CC_EXT;
 	 bool IsRunning;
 	 //英雄运动的方向
 	 bool HeroDirecton;
+	 // 攻击动画
+	 void AttackAnimation(const char *name_plist,const char *name_png,const char *name_each,const unsigned int num,bool run_directon);
+ 
+	//攻击动画结束
+	void AttackEnd();
+
 	 CREATE_FUNC(Hero);
  private:
 	 CCSprite* m_HeroSprite;//精灵
 	 char *Hero_name;//用来保存初始状态的精灵图片名称
+	 bool IsAttack;
  };
 #endif // __HERO_H__

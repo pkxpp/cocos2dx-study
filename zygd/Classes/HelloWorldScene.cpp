@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 
+
 USING_NS_CC;
 
 CCScene* HelloWorld::scene()
@@ -40,6 +41,11 @@ bool HelloWorld::init()
 	this->addChild(hero,1);
 	//hero->SetAnimation("run_animation.plist","run_animation.png",8,true);//8表示plist中的图片数目,false表示脸朝右
 
+	// 添加攻击按钮
+	btn = MyControlButton::create();
+	btn->CreateButton("bt.png");
+	btn->setPosition(ccp(visibleSize.width-50, 50));
+	this->addChild(btn, 2);
 
 	//启动updata事件
 	this->scheduleUpdate();
@@ -72,5 +78,7 @@ void HelloWorld::update(float delta)
 		break;
 
 	}
+	if (btn->isTouch)
+		hero->AttackAnimation("attack1_animation.plist","attack1_animation.png","attack_",6,rocker->rocketRun);
 }
 
